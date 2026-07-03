@@ -1,5 +1,7 @@
 import time
 
+start = time.perf_counter()
+
 weights = [4, 8, 3, 5, 9, 2, 3, 1, 5, 2, 4, 2, 7, 10, 3, 13, 11, 8]
 values = [6, 12, 4, 3, 7, 1, 3, 2, 7, 3, 4, 2, 10, 13, 5, 16, 14, 9]
 capacity = 45
@@ -25,8 +27,10 @@ def brute_force():
     
     return max_value, best_combination
 
-if __name__ == "__main__":
-    print("総当たり法")
-    value, combo = brute_force()
-    print(f"最大の値段: {value}")
-    print(f"品物の組み合わせ: {combo}")
+value, combo = brute_force()
+
+end = time.perf_counter()
+
+print(f"最大の値段: {value}")
+print(f"品物の組み合わせ: {combo}")
+print("処理時間: {:.6f} 秒".format(end - start))
